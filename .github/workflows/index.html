@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Akela Bhai – Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --card: #1a1a1a;
+    --accent: #e8003d;
+    --text: #f0f0f0;
+    --muted: #888;
+    --border: #2a2a2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    position: sticky;
+    top: 0;
+    background: rgba(13,13,13,0.96);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--text);
+  }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO — full bleed like Peush */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    overflow: hidden;
+    background: #000;
+  }
+  .hero-text {
+    position: absolute;
+    top: 48px;
+    left: 24px;
+    z-index: 2;
+  }
+  .hero-tag {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 54px;
+    line-height: 1.02;
+    letter-spacing: 1px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-photo {
+    width: 100%;
+    height: 92vh;
+    position: relative;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  /* dark gradient at top so text is readable */
+  .hero-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 45%, transparent 100%);
+    z-index: 1;
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: 20px; left: 20px;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-weight: 600;
+    z-index: 3;
+  }
+
+  /* ABOUT PHOTO */
+  .about-photo-wrap {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    max-height: 300px;
+  }
+  .about-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 40px 20px; }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 40px; height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* ABOUT */
+  .about-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .about-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+  }
+  .tab.active {
+    background: var(--accent);
+    color: white;
+    border: 1px solid var(--accent);
+  }
+  .tab:not(.active) {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  .tab-content.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag {
+    background: #252525;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+  .exp-item, .edu-item {
+    color: var(--muted);
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child, .edu-item:last-child { border-bottom: none; }
+  .exp-item strong, .edu-item strong { color: var(--text); font-size: 14px; display: block; }
+
+  /* SERVICES */
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.3s;
+  }
+  .service-card:hover { border-color: var(--accent); }
+  .service-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .service-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .service-card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* WORK */
+  .work-grid { display: flex; flex-direction: column; gap: 16px; }
+  .work-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .work-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+  }
+  .work-thumb {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, #1e1e1e, #111);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .work-thumb-1 { background: linear-gradient(135deg, #1a0010, #3d0020); }
+  .work-thumb-2 { background: linear-gradient(135deg, #001a1a, #003d3d); }
+  .work-thumb-3 { background: linear-gradient(135deg, #0d0d1a, #1a1a3d); }
+  .work-label {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(6px);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .work-icon {
+    font-size: 36px;
+    opacity: 0.3;
+  }
+  .work-info { padding: 16px; }
+  .work-info h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .work-info p { font-size: 12px; color: var(--muted); }
+  .see-more-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+  .see-more-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* CONTACT */
+  .contact-info { margin-bottom: 28px; }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-row span { color: var(--accent); font-size: 16px; }
+  .socials {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .social-btn {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .social-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  .download-cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: opacity 0.2s;
+  }
+  .download-cv:hover { opacity: 0.85; }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    margin-bottom: 12px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--accent);
+  }
+  .contact-form textarea { height: 100px; resize: none; }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+  .submit-btn:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  footer span { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Akela<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-tag">Web Designer &amp; Branding Expert</p>
+    <h1>Hii, I'm <span>Akela</span><br>Bhai From India</h1>
+  </div>
+  <div class="hero-photo">
+    <img src="https://i.ibb.co/V0m90Dqt/hero-jpg.png" alt="Akela Bhai" />
+    <div class="hero-badge">@Akelajiofficial</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <div class="about-photo-wrap">
+    <img src="https://i.ibb.co/YFVTQmd7/100008591.jpg" alt="Akela Bhai" class="about-photo" />
+  </div>
+  <div class="about-card">
+    <p>Hey everyone! I'm Akela Bhai — a Freelance Web Designer and Personal Branding Expert from India 🇮🇳. I build websites that actually grow businesses, not just look pretty. Author of <em>Brand Yourself</em> and <em>MIND GAME: The Psychology of Influence</em>.</p>
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('skills')">Skills</button>
+      <button class="tab" onclick="switchTab('experience')">Experience</button>
+      <button class="tab" onclick="switchTab('education')">Education</button>
+    </div>
+    <div id="skills" class="tab-content active">
+      <div class="skills-grid">
+        <span class="skill-tag">Web Design</span>
+        <span class="skill-tag">Framer</span>
+        <span class="skill-tag">React/JSX</span>
+        <span class="skill-tag">HTML & CSS</span>
+        <span class="skill-tag">Personal Branding</span>
+        <span class="skill-tag">UI/UX</span>
+        <span class="skill-tag">SEO</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Content Creation</span>
+        <span class="skill-tag">Glassmorphism</span>
+      </div>
+    </div>
+    <div id="experience" class="tab-content">
+      <div class="exp-item">
+        <strong>Freelance Web Designer</strong>
+        akelabhai.com · 2022 – Present
+      </div>
+      <div class="exp-item">
+        <strong>Personal Branding Consultant</strong>
+        Multi-platform content creator · Ongoing
+      </div>
+      <div class="exp-item">
+        <strong>Author</strong>
+        Amazon KDP & Google Play Books · 2024–Present
+      </div>
+    </div>
+    <div id="education" class="tab-content">
+      <div class="edu-item">
+        <strong>Web Development</strong>
+        Self-taught · HTML, CSS, JS, React, Framer
+      </div>
+      <div class="edu-item">
+        <strong>UI/UX Design</strong>
+        Figma & Design Systems · Online Courses
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2 class="section-title">My Services</h2>
+  <div class="service-card">
+    <div class="service-icon">&lt;/&gt;</div>
+    <h3>Web Design</h3>
+    <p>I build high-converting websites on Framer, React & custom HTML/CSS. Your website is your business infrastructure — not decoration.</p>
+    <a class="learn-more">Learn More →</a>
+  </div>
+  <div class="service-card">
+    <div class="service-icon">⬡</div>
+    <h3>UI/UX Design</h3>
+    <p>Clean, intuitive interfaces designed in Figma. From wireframes to production-ready components with glassmorphism and dark aesthetics.</p>
+    <a class="learn-more">Learn More →</a>
+  </div>
+  <div class="service-card">
+    <div class="service-icon">🧠</div>
+    <h3>Personal Branding</h3>
+    <p>Build your identity, grow your influence, and dominate social media. From strategy to content — I'll make you unforgettable online.</p>
+    <a class="learn-more">Learn More →</a>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <h2 class="section-title">My Work</h2>
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-thumb work-thumb-1">
+        <div class="work-label">Personal Brand</div>
+        <div class="work-icon">🔥</div>
+      </div>
+      <div class="work-info">
+        <h4>akelabhai.com</h4>
+        <p>Portfolio & personal brand website with dark glassmorphism design</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-thumb work-thumb-2">
+        <div class="work-label">Web App</div>
+        <div class="work-icon">⚡</div>
+      </div>
+      <div class="work-info">
+        <h4>Social Media Dashboard</h4>
+        <p>Multi-platform content analytics and scheduling tool</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-thumb work-thumb-3">
+        <div class="work-label">Book</div>
+        <div class="work-icon">📖</div>
+      </div>
+      <div class="work-info">
+        <h4>Brand Yourself — Book</h4>
+        <p>Published on Amazon KDP & Google Play Books</p>
+      </div>
+    </div>
+  </div>
+  <button class="see-more-btn">See More</button>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Contact Me</h2>
+  <div class="contact-info">
+    <div class="contact-row">
+      <span>✉</span>
+      <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1b7874756f7a786f5b7a707e777a79737a7235787476">[email&#160;protected]</a>
+    </div>
+    <div class="contact-row">
+      <span>📞</span>
+      +91 XXXXXXXXXX
+    </div>
+  </div>
+  <div class="socials">
+    <a class="social-btn" title="Twitter">𝕏</a>
+    <a class="social-btn" title="Instagram">IG</a>
+    <a class="social-btn" title="LinkedIn">in</a>
+    <a class="social-btn" title="YouTube">YT</a>
+  </div>
+  <button class="download-cv">⬇ Download CV</button>
+  <div class="contact-form">
+    <input type="text" placeholder="Your Name" />
+    <input type="email" placeholder="Your Email" />
+    <textarea placeholder="Your Message"></textarea>
+    <button class="submit-btn">Submit</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Copyright © Akela Bhai · Made with <span>♥</span> by Akela Bhai
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function switchTab(id) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.
