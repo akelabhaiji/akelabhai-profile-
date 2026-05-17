@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Banner -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0f0f,100:1a1a2e&height=160&section=header&text=Akela%20Bhai&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Web%20Designer%20%E2%80%A2%20Personal%20Branding%20Consultant&descAlignY=60&descColor=aaaaaa" />
+<img src="solar-banner.svg" width="100%"/>
 
 <br/>
 
