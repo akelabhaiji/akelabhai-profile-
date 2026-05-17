@@ -19,7 +19,7 @@
 
 ## 👋 About Me
 
-I am **Akela Bhai** — a Web Designer & Personal Branding Consultant from **Mahoba, India**.
+I'm **Akela Bhai** — a Web Designer & Personal Branding Consultant from **Mahoba, India**.
 
 I build websites that don't just *look* good — they **work** for your business. Clean design, fast load times, and SEO-friendly structure. That's my standard.
 
