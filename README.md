@@ -54,7 +54,7 @@ I build websites that don't just *look* good — they **work** for your business
 
 ## 📚 Published Work
 
-📖 **[Brand Yourself](https://akelabhai.com)** *(2026)*  
+📖 **[Brand Yourself](https://amzn.in/d/0efxDuCi)** *(2026)*  
 *Build Your Identity, Grow Your Influence, and Dominate Social Media*  
 Available on **Amazon KDP** & **Google Play Books**
 
