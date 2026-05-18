@@ -60,9 +60,15 @@ Available on **Amazon KDP** & **Google Play Books**
 
 ---
 
-## 📊 GitHub Stats
+## 📊 Stats
 
-<img src="https://streak-stats.demolab.com?user=akelabhaiji&theme=dark">
+<div align="center">
+
+<img src="https://streak-stats.demolab.com?user=akelabhai&theme=dark"/>
+
+</div>
+
+---
 
 ## 🤝 Let's Work Together
 
