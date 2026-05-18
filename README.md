@@ -64,10 +64,11 @@ Available on **Amazon KDP** & **Google Play Books**
 
 <div align="center">
 
-![Akela Bhai's GitHub Stats](https://github-readme-stats.vercel.app/api?username=akelabhaiji&show_icons=true&theme=dark&hide_border=true&bg_color=0d0d0d&title_color=ffffff&icon_color=4f8ef7&text_color=aaaaaa&count_private=true&include_all_commits=true)
+<img src="https://github-readme-stats.vercel.app/api?username=akelabhaiji&show_icons=true&theme=tokyonight" />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=akelabhaiji&layout=compact&theme=tokyonight" />
 
 </div>
-
 ---
 
 ## 🤝 Let's Work Together
