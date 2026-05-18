@@ -60,7 +60,7 @@ Available on **Amazon KDP** & **Google Play Books**
 
 ---
 
-## 📊 Stats
+## 📊 GitHub Stats
 
 <div align="center">
 
