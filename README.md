@@ -62,15 +62,13 @@ Available on **Amazon KDP** & **Google Play Books**
 
 ## 📊 GitHub Stats
 
-<div align="center">
+<p align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=akelabhaiji&show_icons=true&theme=transparent&include_all_commits=true&count_private=true"/>
+</p>
 
-<img src="https://github-readme-stats.vercel.app/api?username=akelabhaiji&show_icons=true&theme=github_dark" />
-
-<br><br>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=akelabhaiji&layout=compact&theme=github_dark" />
-
-</div>
+<p align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=akelabhaiji&layout=compact&theme=transparent"/>
+</p>
 ---
 
 ## 🤝 Let's Work Together
