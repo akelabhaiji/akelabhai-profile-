@@ -64,7 +64,7 @@ Available on **Amazon KDP** & **Google Play Books**
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com?user=akelabhai&theme=dark"/>
+<img src="https://streak-stats.demolab.com?user=akelabhaiji&theme=dark"/>
 
 </div>
 
