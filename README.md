@@ -62,9 +62,7 @@ Available on **Amazon KDP** & **Google Play Books**
 
 ## 📊 GitHub Stats
 
-<p align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true">
-</p>
+<img src="https://streak-stats.demolab.com?user=akelabhaiji&theme=dark">
 
 ## 🤝 Let's Work Together
 
