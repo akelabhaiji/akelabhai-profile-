@@ -64,9 +64,11 @@ Available on **Amazon KDP** & **Google Play Books**
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=akelabhaiji&show_icons=true&theme=tokyonight" />
+<img src="https://github-readme-stats.vercel.app/api?username=akelabhaiji&show_icons=true&theme=github_dark" />
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=akelabhaiji&layout=compact&theme=tokyonight" />
+<br><br>
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=akelabhaiji&layout=compact&theme=github_dark" />
 
 </div>
 ---
